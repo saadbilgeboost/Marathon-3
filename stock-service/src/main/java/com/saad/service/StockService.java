@@ -38,7 +38,7 @@ public class StockService extends ServiceManager<Stock,Long> {
                 iStockRepository.findOptionalByProductId(product_id);
         if(stock.isEmpty()) throw new StockServiceException(ErrorType.PRODUCT_NOT_FOUND);
         Stock stock1 = stock.get();
-        stock1.setQuantity(dto.getQuantity());
+        stock1.setQuantity(stock.get().getQuantity()+dto.getQuantity());
         save(stock1);
         return true;
     }

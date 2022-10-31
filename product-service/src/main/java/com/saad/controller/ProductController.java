@@ -17,9 +17,9 @@ import static com.saad.constants.ApiUrls.*;
 public class ProductController {
     private final ProductService productService;
 @PostMapping(REGISTER)
-    public ResponseEntity<Void> register(@RequestBody RegisterRequestDto dto){
+    public ResponseEntity<Boolean> register(@RequestBody RegisterRequestDto dto){
         if(productService.save(dto))
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(true);
         return ResponseEntity.badRequest().build();
     }
     @GetMapping(LIST_ALL_PRODUCTS)
