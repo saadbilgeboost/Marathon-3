@@ -1,0 +1,4 @@
+rootProject.name = 'Marathon-3'
+include 'product-service'
+include 'stock-service'
+
